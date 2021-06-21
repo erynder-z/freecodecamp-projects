@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf_8">
+    </head>
+    <body>
+        <div class="container">
+    <header>
+        <h1 id="title" class="text-center">Brotinger Survey Form</h1>
+        <p id="description" class="text-center">Thank you for using our services!</p>
+        <link rel="stylesheet" href="survey.css">
+    </header>
+    
+        <form id="survey-form">
+            <div class="form-group">
+                <label id="name-label" for="name">
+                    Name
+                </label>
+                <input id="name" class="form-control" type="text" name="name" placeholder="Enter your name" required="">
+            </div>
+            <div class="form-group">
+                <label id="email-label" for="email">
+                    Email
+                </label>
+                <input id="email" class="form-control" type="email" name="email" placeholder="Enter your Email" required="">
+            </div>
+            <div class="form-group">
+                <label id="number-label" for="number">
+                    Age
+                </label>
+                <input id="number" class="form-control" type="number" name="number" min="12" max="99" placeholder="Enter your Age">
+            </div>
+            <div class="form-group">
+                <p>What bread do you want?</p>
+                <select id="dropdown" class="form-control" name="role" required="">
+                    <option disabled="" selected="" value="" Make you choice!></option>
+                    <option value="weissbrot">Weissbrot</option>
+                    <option value="graubrot">Graubrot</option>
+                    <option value="vollkornbrot">Vollkornbrot</option>
+                    <option value="bernd">Bernd das Brot</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Where do you want to eat your bread?</p>
+                <label>
+                    <input class="input-radio" name="places" value="bakery" type="radio" checked="">
+                    At the bakery
+                </label>
+                <label>
+                    <input class="input-radio" name="places" value="balcony" type="radio">
+                    At Bernd's balcony
+                </label>
+                <label>
+                    <input class="input-radio" name="places" value="playa" type="radio">
+                    At playa d'en balla
+                </label>
+            </div>
+            <div class="form-group">
+                <p>What is most frustrating to you? <span class="clue"> (multiple choices possible)</span>
+                </p>
+                <label>
+                    <input class="input-checkbox" name="annoy" value="people" type="checkbox">
+                    People
+                </label>
+                    <label>
+                        <input class="input-checkbox" name="annoy" value="fame" type="checkbox">
+                        Fame
+                    </label>
+                    <label>
+                        <input class="input-checkbox" name="annoy" value="action" type="checkbox">
+                        Action
+                    </label>
+                    <label>
+                        <input class="input-checkbox" name="annoy" value="astro-bread" type="checkbox">
+                        Astro-Bread
+                    </label>
+            </div>
+            <div class="form-group">
+                <p>Any last words?</p>
+                <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your comment here..."> </textarea>
+            </div>
+            <div class="form-group">
+                <button id="submit" class="submit-button" type="submit">Submit</button>
+            </div>
+        </form>
+    </body>
+</html>
