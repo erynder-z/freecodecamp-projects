@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="documentation.css">
+    <head>
+    </head>
+    <body>  
+        <nav id="navbar">
+            <header>C=64 BASIC Documentation</header>
+            <ul>
+                <li>
+                    <a class="nav-link" href="#Introduction">Introduction</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Variables">Variables</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Operators">Operators</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Commands">Commands</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Statements">Statements</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Numeric_functions">Numeric functions</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Other_functions">Other functions</a>
+                </li>
+            </ul>
+        </nav> 
+        <main id="main-doc">
+            <section id="Introduction" class="main-section">
+                <header>Introduction</header>
+                <article>
+                    <p>This manual has given you an introduction to the BASIC language —
+                        enough for you to get a feel for computer programming and some of
+                        the vocabulary involved. This appendix gives a complete list of the rules
+                        (SYNTAX) of Commedore 64 BASIC, along with concise descriptions.
+                        Please experiment with these commands. Remember, you can’t do any
+                        permanent damage to ‘he computer by just typing in programs, and the
+                        best way to learn computing is by doing.</p>
+                        <ul>
+                            <li>1. Variables and Operators: describes the different type of variables,
+                                legal variable names, and arithmetic and logical operators.</li>
+                            <li>2. Commands: describes the commands used to work with programs,
+                                edit, store, and erase them.</li>
+                            <li>3. Statements: describes the BASIC program statements used in num-
+                                bered lines of programs.</li>
+                            <li>4. Functions: describes the string, numeric, and print functions.</li>
+                        </ul>
+                </article>
+            </section>
+            <section id="Variables" class="main-section">
+                <header>Variables</header>
+                <article>
+                    <p>The Commodore 64 uses three types of variables in BASIC. These are
+                        real numeric, integer numeric, ond string (alphanumeric) variables.</p>
+                        <p>names may consist of a single letter, o letter followed by a
+                        number, or two letters.</p> 
+                        <p>An integer variable is specified by using the percent (%/) sign after the
+                        variable name. String variables have the dollar sign ($) after their
+                        name.</p>
+                        <h4>EXAMPLES</h4>
+                        <ul>
+                            <li>Real Variable Names: A, A5, BZ</li>
+                            <li>Integer Variable Names: A%, A5%, BZ%</li>
+                            <li>String Variable Names: A$, A5$, BZ$</li>
+                        </ul>
+                        <p>Arrays are lists of variables with the same name, using extra numbers
+                            to specify the element of the array. Arrays are defined using the DIM
+                            statement, and may contain floating point, integer, or string variables.
+                            The array variable name is followed by a set of parentheses (__) enclos-
+                            ing the number of variables in the list.</p>
+                            <ul>
+                                <li>A(7), BZ%(11), AS(50), PT(20,20)</li>
+                            </ul>
+                            <p>NOTE: There are three variable names which are reserved for use by
+                                the Commodore 464, and may not be definad by you. These variables
+                                are: ST, Tl, and TI$. ST is a status variable which relates to input/output
+                                operations. The value of ST will change if there is a problem loading a
+                                program from disk or tape.</p>
+                            <p>Tl and TI$ are variables which relate to the real-time clock built into
+                                the Commodore 64. The variable Tl is updated every '/eoth cf a second.
+                                It starts at O when the computer is turned on, and is reset only by chang-
+                                ing the value of TIS.</p>
+                            <p>TI$ is a string which is constantly updated by the system. The first two
+                                characters contain the number of hours, the 3rd and 4th characters the
+                                number of minutes, and the Sth and 6th characters are the number of
+                                seconds. This veriable can be given any numeric value, and will be
+                                updated from that point.</p>
+                            <ul>
+                                <li>TI$ — “101530” sets the clock te 10:15 and 30 seconds AM.</li>
+                            </ul>
+                            <p>This clock is erased when the computer is turned off, and starts at
+                                zero when the system is turned back on.</p>
+                </article>
+            </section>
+            <section id="Operators" class="main-section">
+                <header>Operators</header>
+                <article>
+                    <p>The crithmetic operators include the following signs:</p>
+                    <ul>
+                        <li>+ Addition</li>
+                        <li>— Subtraction</li>
+                        <li>* Multiplication</li>
+                        <li>/ Division</li>
+                        <li>t Raising to a power (exponentiation)</li>
+                    </ul>
+                    <p>On a line containing more than one operator, there is a set order in
+                        which operations always occur. If several operations are used together on the some ling, the computer assigns priorities as follows: First, ex-
+                        ponentiation. Next, multiplication and division, and lest, addition and
+                        subtraction.</p>
+                    <p>You can change the order of operations by enclosing within pa-
+                        rentheses the calculation to be performed first. Operations enclosed in
+                        parentheses will take place before other operations.
+                        </p>
+                    <p>There are also operations for equalities and inequalities:</p>
+                    <ul>
+                        <li>= Equal To</li>
+                        <li>< Less Than</li>
+                        <li>> Greater Than</li>
+                        <li><== Less Than or Equel To</li>
+                        <li>>= Greater Than or Equal To</li>
+                        <li><> Not Equel To</li>
+                    </ul>
+                    <p>Finally, there are three logical operators:</p>
+                    <ul>
+                        <li>AND</li>
+                        <li>OR</li>
+                        <li>NOT</li>
+                    </ul>
+                    <p>These are used most often to join mulliple formulas in IF... THEN
+                        statements. For example:</p>
+                    <ul>
+                        <li>IF 4 = B AND C = D THEN 100 (Requires both parts to be true)</li>
+                        <li>IF A = B OR C = D THEN 100 (Allows either part to be true)</li>
+                    </ul>
+                    </article>
+                </section>
+                <section id="Commands" class="main-section">
+                    <header>Commands</header>
+                    <article>
+                    <h4>CONT (Continue)</h4>
+                    <p>This command is used to restart the execution of a program which has
+                        been stopped by either using the STOP key, a STOP statement, or an
+                        END statement within the program. The program will restart at the exact
+                        place from where it left off.</p>
+                    <p>CONT will not work if you have changed or added lines to the pro-
+                        gram (or even just moved the cursor), or if the program halted due to an
+                        error, or if you caused an error before trying to restart the program. In
+                        these cases you will get a CAN’T CONTINUE ERROR.</p>
+                        <h4>LIST</h4>
+                        <p>The LIST command allows you to look at lines of a BASIC program in
+                            memory. You can ask for the entire program to be displayed, or only
+                            certain line numbers.</p>
+                            <ul>
+                                <li>LIST Shows entire program</li>
+                                <li>LIST 10— Shows only from line 10 until end</li>
+                                <li>LIST 10 Shows only line 10</li>
+                                <li>LIST —10 Shows lines from beginning until 10</li>
+                                <li>LIST 10-20 Shows line from 10 to 20, inclusive</li>
+                            </ul>
+                        <h4>LOAD</h4>
+                        <p>This command is used co transfer a program from tape or disk inte
+                            memery so the pregram can be used. If you just type LOAD and hit
+                            RETURN, the first program found on the cassette unit will be placed in
+                            memory. The command may be followed by a program name enclosed
+                            within quoles. The name may then be followed by a comma and o
+                            number or numeric variable, which acts as a device number to indicate
+                            where the program is coming from.
+                            </p>
+                        <p>If no device number is given, the Commodore 44 assumes device #1,
+                            which is the cassette unit. The other device commonly used with the
+                            LOAD command is the disk drive, which is device #8.</p>
+                            <ul>
+                                <li>LOAD Reads in the next program on tape</li>
+                                <li>LOAD “HELLO” Searches tape for program called</li>
+                                <li>HELLO, and loads program, if found</li>
+                                <li>LOAD A$ Looks for program whose name is in the variable A$</li>
+                                <li>LOAD “HELLO”,8 Looks for program called HELLO on the disk drive</li>
+                                <li>LOAD "*".8 Looks for first program on disk</li>
+                            </ul>
+                        <h4>NEW</h4>
+                        <p>This command erases the entire orogram in memory, and also clears
+                            out any variables that may have been used. Unless the program was
+                            SAVEd, it is lost. BE CAREFUL WHEN YOU USE THIS COMMAND.
+                            </p>
+                        <p>The NEW command can also be used as a BASIC program statement.
+                            When the program reaches this line, the program is erased. This is use-
+                            ful if you want to leave everything neat when the program is done.</p>
+                        <h4>RUN</h4>
+                        <p>This command causes execution of a program, once the program is
+                            loaded into memory, If there is no linc number following RUN, the com-
+                            puter will start with the lowest line number. If a line number is desig-
+                            nated, the program will start executing from the specified line.</p>
+                            <ul>
+                                <li>RUN Starts program at lowest line number</li>
+                                <li>RUN 100 Starts execution at line 100</li>
+                                <li>RUN X UNDEFINED STATEMENT ERROR. You must always specify an actual line number,
+                                    not a variable representation</li>
+                            </ul>
+                        <h4>SAVE</h4>
+                        <p>This command will store the program currently in memory on cassette
+                            or disk. If you just type SAVE and RETURN, the program will be SAVEd on
+                            cassette, The computer has no way of knowing if there is o program
+                            already on that tape, so be careful with your tapes or you may erase a
+                            valuable program.</p>
+                        <p>If you type SAVE followed by a name in quotes or a string variable,
+                            the computer will give the program that name, so it can be more easily
+                            located and retrieved in the future. The name may also be followed by
+                            a device number.</p>
+                        <p>After the device number, there can be a comma and a second
+                            number, either 0 or 1. If the second number is 1, the Commodore 64 will
+                            put an END-OF-TAPE marker after your program. This signals the
+                            computer not to look any further on the tape if you were to give an
+                            additional LOAD command. If you try to LOAD a program and the com-
+                            puter finds one of these markers, you will get a FILE NOT FOUND ER-
+                            ROR.
+                            </p>
+                            <ul>
+                                <li>SAVE Stores program to tape without name</li>
+                                <li>SAVE “HELLO” Stores on tape with name HELLO</li>
+                                <li>SAVE AS Stores on tape with name in A$</li>
+                                <li>SAVE “HELLO” ,8 Stores on disk with name HELLO</li>
+                                <li>SAVE “HELLO”,1,1 Stores on tape with name HELLO and follows orogram with END-OF-
+                                    TAPE marker</li>
+                            </ul>
+                        <h4>VERIFY</h4>
+                        <p>This command causes the computer to check the program on disk or
+                            tape against the one in memory. This is proof that the program is actu-
+                            ally SAVEd, in case the tape or disk is bad, or something went wrong
+                            during the SAVE. VERIFY without anything after the command causes the
+                            Commodore 64 to check the next program on tape, regardless of name,
+                            against the program in memory.</p>
+                        <p>VERIFY followed by a program name, or a string variable, will search
+                            for that program and then check. Device numbers can also be included
+                            with the verify command.</p>
+                            <ul>
+                                <li>VERIFY Checks the next program on tape</li>
+                                <li>VERIFY “HELLO” Searches for HELLC, checks against memory</li>
+                                <li>VERIFY “HELLO”,8 Seorches for HELLO on disk, then checks</li>
+                            </ul>
+                    </article>
+                </section>
+                <section id="Statements" class="main-section">
+                    <header>Statements</header>
+                    <article>
+                    <h4>CLOSE</h4>
+                    <p>This command completes and closes any files used by OPEN state-
+                        ments. The number following CLOSE is the file number to be closed.</p>
+                        <ul>
+                            <li>CLOSE 2 Only file #2 is closed</li>
+                        </ul>
+                    <h4>CLR</h4>
+                    <p>This command will erase any variables in memory, but leaves the
+                        program itself intact. This command is automatically executed when a
+                        RUN command is given.</p>
+                    <h4>CMD</h4>
+                    <p>CMD sends the output which normally would go to the screen [i.e.,
+                        PRINT statements, LISTs, but not POKEs onto the screen) to another de-
+                        vice instead. This could be a printer, or a date file on tape or disk. This
+                        device or file must be OPENed first. The CMD command must be fol-
+                        lowed by a number or numeric varicble referring to the file.</p>
+                        <ul>
+                            <li>OPEN 1,4 OPENs device #4, which is the printer</li>
+                            <li>CMD 1 All normal cutput now goes to printer</li>
+                            <li>LIST The program listing now goes to the printer, not the screen</li>
+                        </ul>
+                    <p>To send output back to the screen, CLOSE the file with CLOSE 1.</p>
+                    <h4>DATA</h4>
+                    <p>This statement is followed by a list of items to be used by READ
+                        statements. Items may be numeric values or text strings, and items are
+                        separated by commas. String items need not be inside quote marks
+                        unless they contain space, colon, or comme. If two commas have noth-
+                        ing between them, the value will be READ as a zero for a number, or an
+                        empty string.</p>
+                        <code>DATA 12, 14.5, “HELLO, MOM”, 3.14, PART I</code>
+                    <h4>DEF FN</h4>
+                    <p>This command allows you to define a complex calculation as a func-
+                        tion with a short name. In the case of a long formula that is used many
+                        times within the program, this can save time and space.
+                        </p>
+                    <p>The function name will be FN and any legal variable name (1 or 2
+                        characters long). First you must define the function using the statement
+                        DEF followed by the function name. Following the name is a set of pa-
+                        rentheses enclosing a numeric variable, Then follows the actual formula
+                        that you want to define, with the variable in the proper spot. You can
+                        then “call” the formula, substituting any number for the variable.</p>
+                        <code>10 DEF FNA(X) = 12*(34.75 — X/.3)<br>
+                            20 PRINT FNA(7) t</code>
+                    <p>7 is inserted where X is in the formula.</p>
+                    <p>For this example, the result would be 137.</p>
+                    <h4>DIM</h4>
+                    <p>When you use more than 11 elements of an array, you must execute a
+                        DIM statement for the array. Keep in mind that the whole array takes up room in memory, so don’t create an array much larger than you'll need.
+                        To figure the number of variables created with DIM, multiply the total
+                        number of elements in each dimension of the array.</p>
+                        <code>10 DIM A$(40), B7(15), CC%[4,4,4)</code>
+                        <p>A$(40) = 41 Elements, B7(15) = 15 Elements,  CC%[4,4,4) = 125 Elements</p>
+                        <p>You can dimension more than-one array in a DIM statement. How-
+                            ever, be careful not to dimension an array more than once.</p>
+                    <h4>END</h4>
+                    <p>When a program encounters an END statement, the program halts, as
+                        if it ran out of lines. You may use CONT to restart the program.</p>
+                    <h4>FOR...TO...STEP</h4>
+                    <p>This statement works with the NEXT statement to repeat a section of
+                        the program a set number of times. The format is:</p>
+                        <ul>
+                            <li>FOR (Var. Name)— (Start of Count) TO (End of Count) STEP (Count By)</li>
+                        </ul>
+                    <p>The loop variable will be added to or subtracted from during the
+                        program, Without any STEP specified, STEP is assumed to be 1. The start
+                        count and end count are the limits to the value of the loop variable.</p>
+                        <code>10 FOR L = 1 TO 1 STEP .1<br>
+                        20 PRINT L<br>
+                        30 STEP L</code>
+                    <p>The end of the loop value may be followed by the word STEP and
+                        another number or variable. In this case, the value following STEP is
+                        added each time instead of 1. This allows you to count backwards, or
+                        by fractions.</p>
+                    <h4>GET</h4>
+                    <p>The GET statement cllaws you to get data from the keyboard, one
+                        charecter at a time. When GET is executed, the character that is typed is assigned to the variable. If no character is typed, then a null (empty)
+                        charocter is assigned.</p>
+                        <p>GET is followed by a variable name, usually o string variable. If a
+                            numeric variable was used and a nonnumeric key depressed, the pro-
+                            gram would halt with an error message. The GET statement may be
+                            ploced into a loap, checking for any empty result. This loop will continue
+                            until a key is hit.</p>
+                            <code>18 GET A$: IF A$ =“" THEN 18</code>
+                    <h4>GET#</h4>
+                    <p>The GET# statement is used with a previously OPENed device or file,
+                        to input one character at a time from that device aor file.</p>
+                        <code>GET #1,A$</code>
+                    <p>This would input one character from a data file.</p>
+                    <h4>GOSUB</h4>
+                    <p>This stalernent is similor to GOTO, except the computer remembers
+                        which program line it last executed before the GOSUB. When a line with
+                        a RETURN statement is encountered, the program jumps back to the
+                        statement immediately following the GOSUB. This is useful if there is a
+                        routine in your program that occurs in several parts of the program.
+                        Instead of typing the routine over and over, execute GOSUBs each time
+                        the routine is needed.</p>
+                        <code>20 GOSUB 800</code>
+                    <h4>GOTO or GO TO</h4>
+                    <p>When a statement with the GOTO command is reached, the next line
+                        to be executed will be the one with the line number following the word
+                        GOTO.</p>
+                    <h4>IF...THEN</h4>
+                    <p>IF. . .THEN lets the computer analyze a situation ond take two possi-
+                        ble courses of action, depending on the outcome. If the expression is
+                        true, the statement following THEN is executed. This may be any BASIC
+                        statement,</p>
+                    <p>If the expression is false, the program goes directly to the next line.</p>
+                    <p>The expression being evaluated may be a variable or formula, in
+                        which case it is considered true if nonzero, ond false if zero. In most
+                        cases, there is an expression involving relational operators (=, <, >,
+                        <=, >=, <>, AND, OR, NOT).</p>
+                        <code>10 IF X > 10 THEN END</code>
+                    <h4>INPUT</h4>
+                    <p>The INPUT statement allows the program to get data from the user,
+                        ossigning that data to a variable. The program will stop, print a ques-
+                        tion mark (?) on the screen, and wait for the user to type in the answer
+                        and hit RETURN.</p>
+                    <p>INPUT is followed by a variable name, or a list of variable names,
+                        separated by commas. A message may be placed within quote marks,
+                        before the list of veriable names to be INPUT. If more than one variable
+                        is to be INPUT, they must be separated by commas when typed.</p>
+                        <code>18 INPUT “PLEASE ENTER YOUR FIRST NAME ”;A$<br>
+                            28 PRINT “ENTER YOUR CODE NUMBER”; : INPUT B</code>
+                    <h4>INPUT#</h4>
+                    <p>INPUT# is similar to INPUT, but takes data from a previously OPENed
+                        file or device.</p>
+                        <code>10 INPUT#1, A</code>
+                    <h4>LET</h4>
+                    <p>LET is hardly ever used in programs, since it is optional, but she
+                        statement is the heart of all BASIC programs. The variable name which
+                        is to be assigned the result of @ calculation is on the left side of the
+                        equal sign, and the formule on the right.</p>
+                        <code>10 LETA — 5<br>
+                            20 LET D$ = “HELLO”</code>
+                    <h4>NEXT</h4>
+                    <p>NEXT is always used in conjunction with the FOR statement. When the
+                        program reaches a NEXT statement, it checks the FOR statement to see
+                        if the limit of the loop has been reached. If the loop is not finished, the
+                        loop variable is increased by the specitied STEP value. It the loop is
+                        finished, execution proceeds with the statement following NEXT.</p>
+                    <p>EXT may be followed by a variable name, or list of variable names,
+                        separated by commas. If there are no names listed, the last loop started
+                        is the one being completed. If variables are given, they are completed
+                        in order from left to right.</p>
+                        <code>10 FOR X = 1 TO 100: NEXT</code>
+                <h4>ON</h4>
+                <p>This command turns the GOTO and GOSUB commands into special
+                    versions of the IF statement. ON is followed by a formula, which is
+                    evaluated. If the result of the calculation is one, the first line on the list is
+                    executed; if the result is 2, the second line is executed, and so on. If the
+                    result is 0, negative, or larger than the list of numbers, the next line
+                    executed will be the statement following the ON statement.
+                    </p>
+                    <code>10 INPUT X<br>
+                        20 ON X GOTO 10,20,30,40,50</code>
+                <h4>OPEN</h4>
+                <p>The OPEN statement allows the Commodore 64 to access devices such
+                    as the cassette recorder and disk for data, a printer, or even the screen.
+                    OPEN is fallowed by a number (0-255), to which all following statements
+                    will refer. There is usually a second number ofter the first, which is the
+                    device number.</p>
+                <p>The device numbers are:</p>
+                    <ul>
+                        <li>0 Screen</li>
+                        <li>1 Casette</li>
+                        <li>4 Printer</li>
+                        <li>8 Disk</li>
+                    </ul>
+                <p>Following the device number may be a third number, separated
+                    egain by a comma, which is the secondary address. In the case of the
+                    cassette, this is 0 for read, | for write, and 2 for write with end-of-tape
+                    marker.</p>
+                <p>In the case of the disk, the number refers to the buffer, or channel,
+                    number. In the printer, the secondary address controls features like ex-
+                    panded printing. See the Commedore 44 Programmer's Reference Man-
+                    ual far more details.</p>
+                    <ul>
+                        <li>10 OPEN 1,2 OPENs the SCREEN as a device</li>
+                        <li>20 OPEN 2,1,8,"D"  OPENs the cassette for reading, file to be searched for is D</li>
+                        <li>30 OPEN 3,4 OPENs the printer</li>    
+                        <li>40 OPEN 4,8,15 OPENs the data channel on the disk</li>
+                <p>Also see: CLOSE, CMD, GET#, INPUT#, ard PRINT#, system variable
+                    ST, and Appendix B.
+                    </p>
+                <h4>POKE</h4>
+                <p>POKE is alwoys followed by two numbers, or formulas. The first loca-
+                    tion is a memory location; the second number is a decimal value from 0
+                    to 255, which will be placed in the memory location, replacing any pre-
+                    viously stored value.</p>
+                    <code>10 POKE 53281,0<br>
+                        20 $=4096* 13<br>
+                        30 POKE $+29,8</code>
+                <h4>PRINT</h4>
+                <p>The PRINT statement is the first one most people learn to use, but
+                    there are a number of variations to be aware of. PRINT can be followed
+                    by:</p>
+                    <ul>
+                        <li>Text String with quotes</li>
+                        <li>Variable names</li>
+                        <li>Functions</li>
+                        <li>Punctuation marks</li>
+                    </ul>
+                <p>Punctuation marks are used to help format the data on the screen.
+                    The comma divides the screen inte four columns, while the semicolon
+                    suppresses all spacing. Either mark can be the last symbol on a line.
+                    This results in the next thing PRINTed acting as if it were a continuation of the same PRINT statement.</p>
+                    <code>10 PRINT “HELLO"<br>
+                        20 PRINT “HELLO”, A$<br>
+                        30 PRINT A+B<br>
+                        40 PRINT J;<br>
+                        50% PRINT A,B,C,D</code>
+                <p>Also see: POS, SPC and TAB functions</p>
+                <h4>PRINT#</h4>
+                <p>Thera are a few differences between this statement and PRINT.
+                    PRINT# is followed by a number, which refers to the device or data file
+                    previously OPENed. This number is followed by a comma and a list to be
+                    orinted. The comma and semicolon have the same effect as they do in
+                    PRINT. Please note that some devices may not work with TAB and SPC.</p>
+                    <code>100 PRINT#1,"DATA VALUES”; A%, BI, C$</code>
+                <h4>READ</h4>
+                <p>READ is used to assign information from DATA statements to vari-
+                    ables, so the information muy be put to use. Care must be taken to
+                    avoid READing strings where READ is expecting a number, which will
+                    give a TYPE MISMATCH ERROR.</p>
+                <h4>REM (Remark)</h4>
+                <p>REMark is a note to whomever is reading a LIST of the program. It
+                    may explain a section of the program, or give odditional instructions.
+                    REM statements in no way affect the operation of the program, except
+                    to add to its length. REM may be followed by any text.
+                    </p>
+                <h4>RESTORE</h4>
+                <p>When executed in a program, the pointer to which an item in a DATA
+                    statement will be READ next is reset to the first item in the list. This gives
+                    you the ability to re-READ the information. RESTORE stands by itself on a
+                    line.</p>
+                <h4>RETURN</h4>
+                <p>This statement is clways used in conjunction with GOSUB. When the
+                    program encounters a RETURN, it will go to the statement immediately
+                    following the GOSUB commard. If no GOSUB was previously issued, a
+                    RETURN WITHOUT GOSUB ERROR will occur.
+                    </p>
+                <h4>STOP</h4>
+                <p>This statement will halt program execution. The message, BREAK IN
+                    xxx will be displayed, where xxx is the line number containing STOP. The
+                    program may be restarted oy using the CONT command. STOP is nor-
+                    mally used in debugging a program.</p>
+                <h4>SYS</h4>
+                <p>SY5 is followed by a decimal number or numeric value in the range
+                    0-65535. The program will then begin executing the machine langucge
+                    program sterting at that memory locetion. This is similar te the USR
+                    function, but does not allow parameter passing.</p>
+                <h4>WAIT</h4>
+                <p>WAIT is used to halt the program until the contents of a memory loca-
+                    tion changes in a specific way. WAIT is followed by a memory location
+                    (X) and up to two variables. The format is:</p>
+                    <code>WAIT X,Y,Z</code>
+                <p>The contents of the memory location are first exclusive-ORed with the
+                    third number, if present, and then logically ANDed with the second
+                    number, If the result is zero, the program goes back to that memory location and checks again. When the result is nonzero, the program
+                    continues with the next statement.</p>
+            </section>
+                </article>
+            <section id="Numeric_functions" class="main-section">
+                    <header>Numeric Functions</header>
+                    <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc bibendum tortor nec neque porttitor ultrices. Aenean porta consectetur vehicula. Sed mollis orci justo, quis feugiat lectus elementum sed. Praesent vitae tellus et felis laoreet malesuada sit amet ut nisl. Aliquam eget cursus ante. Suspendisse et elementum dui. Nullam aliquet viverra aliquet. Quisque elit nisi, lobortis eu ornare eu, pharetra id sem. Curabitur fringilla dapibus scelerisque. Praesent id ornare nunc. Aliquam erat volutpat. Donec ornare magna eget nulla ornare elementum. Morbi diam diam, facilisis eu pulvinar sed, tincidunt vitae nisi. </p>
+                    </article>
+            <section id="Other_functions" class="main-section">
+                    <header>Other Functions</header>
+                    <article>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc bibendum tortor nec neque porttitor ultrices. Aenean porta consectetur vehicula. Sed mollis orci justo, quis feugiat lectus elementum sed. Praesent vitae tellus et felis laoreet malesuada sit amet ut nisl. Aliquam eget cursus ante. Suspendisse et elementum dui. Nullam aliquet viverra aliquet. Quisque elit nisi, lobortis eu ornare eu, pharetra id sem. Curabitur fringilla dapibus scelerisque. Praesent id ornare nunc. Aliquam erat volutpat. Donec ornare magna eget nulla ornare elementum. Morbi diam diam, facilisis eu pulvinar sed, tincidunt vitae nisi. </p>
+                    </article>
+        </main>
+    </body>
+</html>
